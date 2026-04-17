@@ -52,36 +52,41 @@ const AdminLayout = () => {
   };
 
   return (
-    <div className="flex h-screen bg-[#F4F7F9] overflow-hidden font-sans text-slate-800">
-      {/* Sidebar background overlay for mobile */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 lg:hidden transition-opacity"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+    <div className="bg-[#F4F7F9] min-h-screen">
+      <div className="flex max-w-7xl mx-auto px-4 gap-6 py-6 font-sans text-slate-800">
+        {/* Sidebar background overlay for mobile */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] lg:hidden transition-opacity"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
 
-      {/* Sidebar */}
-      <aside
-        className={`fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white border-r border-slate-200 transition-transform duration-300 ease-in-out flex flex-col shadow-2xl lg:shadow-none ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-          } lg:w-64`}
-      >
-        <div className="flex items-center justify-between h-16 px-6 border-b border-transparent shrink-0 mt-2">
+        {/* Sidebar */}
+        <aside
+          className={`fixed lg:sticky lg:top-24 lg:self-start inset-y-0 left-0 z-[60] w-64 bg-white border-r border-slate-200 lg:border lg:rounded-2xl lg:shadow-sm transition-transform duration-300 ease-in-out flex flex-col shadow-2xl lg:shadow-none ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+            } lg:w-60 lg:h-fit lg:max-h-[calc(100vh-120px)]`}
+        >
+        {/* Mobile Header for Sidebar - Hidden on Desktop */}
+        <div className="flex lg:hidden items-center justify-between h-16 px-6 border-b border-transparent shrink-0 mt-2">
           <div className="flex items-center gap-3 font-bold text-xl text-slate-900 tracking-tight">
             <div className="w-8 h-8 rounded-lg bg-blue-600 shadow-md shadow-blue-600/20 flex items-center justify-center shrink-0">
               <Newspaper className="w-5 h-5 text-white" />
             </div>
-            <span>Aaj Ka Mudda</span>
+            <span>Admin</span>
           </div>
           <button
-            className="lg:hidden p-1 text-slate-400 hover:text-slate-700 transition-colors"
+            className="p-1 text-slate-400 hover:text-slate-700 transition-colors"
             onClick={() => setSidebarOpen(false)}
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="flex-1 px-4 py-6 overflow-y-auto custom-scrollbar">
+        {/* Desktop spacer to match navbar padding/height */}
+        <div className="hidden lg:block h-3 shrink-0 border-b border-transparent"></div>
+
+        <div className="flex-1 px-4 py-4 overflow-y-auto custom-scrollbar">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4 ml-2">Main Menu</div>
           <nav className="flex flex-col gap-1">
             {navItems.map((item) => {
@@ -117,25 +122,30 @@ const AdminLayout = () => {
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
-        {/* Top Header */}
-        {/* <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-50 shrink-0 shadow-sm relative">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 -ml-2 rounded-md text-slate-600 hover:bg-slate-50 transition-colors"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
+      <div className="flex-1 flex flex-col min-w-0 relative">
+        {/* Top Header — Mobile only */}
+        <header className="h-14 bg-white border-b border-slate-200 flex items-center px-4 lg:hidden z-50 shrink-0 shadow-sm relative mb-4 rounded-xl">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="p-2 -ml-2 rounded-xl text-slate-600 hover:bg-slate-100 active:scale-90 transition-all"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+          <div className="flex items-center gap-2 ml-3 font-bold text-slate-800 text-base">
+            <div className="w-7 h-7 rounded-lg bg-blue-600 flex items-center justify-center">
+              <Newspaper className="w-4 h-4 text-white" />
+            </div>
+            <span>Admin Panel</span>
           </div>
-        </header> */}
+        </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-10">
-          <div className="max-w-[1400px] mx-auto w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <main className="flex-1">
+          <div className="max-w-[1400px] mx-auto w-full animate-in fade-in slide-in-from-bottom-4 duration-500 bg-white border border-slate-200 rounded-2xl shadow-sm p-4 sm:p-6 lg:p-8">
             <Outlet />
           </div>
         </main>
+      </div>
       </div>
     </div>
   );

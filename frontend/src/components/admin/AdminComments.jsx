@@ -7,6 +7,10 @@ const AdminComments = () => {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
 
+  const formatDate = (dateString) => {
+    return new Date(dateString || Date.now()).toLocaleDateString();
+  };
+
   // 1. Fetch All Comments for Admin
   useEffect(() => {
     const fetchComments = async () => {
@@ -139,7 +143,7 @@ const AdminComments = () => {
                         <div>
                           {/* Updated to use author.fullName */}
                           <span className="font-bold text-slate-900 block leading-tight">{comment.author?.fullName || 'Unknown User'}</span>
-                          <span className="text-xs text-slate-500 font-medium">{new Date(comment.createdAt || Date.now()).toLocaleDateString()}</span>
+                          <span className="text-xs text-slate-500 font-medium">{formatDate(comment.createdAt)}</span>
                         </div>
                       </div>
                     </td>

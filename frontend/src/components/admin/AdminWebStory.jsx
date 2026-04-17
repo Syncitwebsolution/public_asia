@@ -9,6 +9,10 @@ const AdminWebStories = () => {
   const [showForm, setShowForm] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const formatDate = (dateString) => {
+    return new Date(dateString || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -364,7 +368,7 @@ const AdminWebStories = () => {
                       </td>
                       <td className="py-3 px-6">
                         <p className="text-sm font-semibold text-slate-700">
-                           {new Date(story.createdAt || story.date || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                           {formatDate(story.createdAt || story.date)}
                         </p>
                       </td>
                       <td className="py-3 px-6 text-right">

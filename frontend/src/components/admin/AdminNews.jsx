@@ -8,6 +8,14 @@ const AdminNews = () => {
   const [editingId, setEditingId] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [showForm, setShowForm] = useState(false);
+
+  const formatDate = (dateString) => {
+    return new Date(dateString || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
+  const formatTime = (dateString) => {
+    return new Date(dateString || Date.now()).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  };
   const [searchTerm, setSearchTerm] = useState("");
 
   const [formData, setFormData] = useState({
@@ -386,10 +394,10 @@ const AdminNews = () => {
                       </td>
                       <td className="py-4 px-6">
                          <p className="text-sm font-semibold text-slate-700">
-                           {new Date(article.createdAt || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                           {formatDate(article.createdAt)}
                          </p>
                          <p className="text-xs font-medium text-slate-400 mt-0.5">
-                           {new Date(article.createdAt || Date.now()).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+                           {formatTime(article.createdAt)}
                          </p>
                       </td>
                       <td className="py-4 px-6 text-right">

@@ -5,7 +5,7 @@ import { User } from './src/models/user.model.js';
 async function seedAdmin() {
     try {
         console.log('Connecting to database...');
-        await mongoose.connect(process.env.MONGODB_URI);
+        await mongoose.connect(`${process.env.MONGODB_URI}/news-db`);
         
         const adminEmail = 'admin@news.com';
         const existingAdmin = await User.findOne({ email: adminEmail });

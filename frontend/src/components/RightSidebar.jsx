@@ -279,7 +279,7 @@ const RightSidebar = () => {
           <Link to="/privacy" className="hover:text-red-600 transition-colors font-medium">Privacy Policy</Link>
           <Link to="/terms" className="hover:text-red-600 transition-colors font-medium">Terms & Conditions</Link>
         </div>
-        <p className="font-semibold text-[11px]">© {new Date().getFullYear()} Aaj Ka Mudda.</p>
+        <p className="font-semibold text-[11px]">© {new Date().getFullYear()} Public Asia.</p>
       </div>
 
     </div>

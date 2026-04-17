@@ -40,7 +40,7 @@ const Contact = () => {
         <header className="text-center border-b pb-8 mb-12">
           <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">हमसे संपर्क करें</h1>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Aaj Ka Mudda की टीम हमेशा आपकी बात सुनने के लिए तैयार है। खबर की टिप देनी हो या विज्ञापन देना हो, बेझिझक संपर्क करें।
+            Public Asia की टीम हमेशा आपकी बात सुनने के लिए तैयार है। खबर की टिप देनी हो या विज्ञापन देना हो, बेझिझक संपर्क करें।
           </p>
         </header>
 
@@ -82,12 +82,12 @@ const Contact = () => {
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-red-200 transition-colors">
                   <Mail size={20} className="text-red-500 mb-2" />
                   <p className="text-sm text-gray-500 font-semibold">संपादकीय (Editorial)</p>
-                  <a href="mailto:editor@timesnews.in" className="text-gray-900 font-medium hover:text-red-600">editor@aajkamudda.in</a>
+                  <a href="mailto:editor@publicasia.com" className="text-gray-900 font-medium hover:text-red-600">editor@publicasia.com</a>
                 </div>
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-red-200 transition-colors">
                   <Mail size={20} className="text-red-500 mb-2" />
                   <p className="text-sm text-gray-500 font-semibold">विज्ञापन (Advertising)</p>
-                  <a href="mailto:ads@timesnews.in" className="text-gray-900 font-medium hover:text-red-600">ads@aajkamudda.in</a>
+                  <a href="mailto:ads@publicasia.com" className="text-gray-900 font-medium hover:text-red-600">ads@publicasia.com</a>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ const Contact = () => {
               <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex flex-col items-center justify-center text-center p-6">
                 <CheckCircle size={60} className="text-green-500 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">संदेश भेज दिया गया!</h3>
-                <p className="text-gray-600">हम जल्द ही आपसे संपर्क करेंगे। Aaj Ka Mudda से जुड़ने के लिए धन्यवाद।</p>
+                <p className="text-gray-600">हम जल्द ही आपसे संपर्क करेंगे। Public Asia से जुड़ने के लिए धन्यवाद।</p>
               </div>
             )}
 

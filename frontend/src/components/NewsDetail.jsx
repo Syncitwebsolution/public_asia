@@ -108,7 +108,7 @@ const NewsDetail = () => {
     return (
         <div className="bg-gray-100 min-h-screen">
             <Helmet>
-                <title>{article.title} | Aaj Ka Mudda</title>
+                <title>{article.title} | Public Asia</title>
                 <meta name="description" content={metaDescription} />
                 <meta property="og:title" content={article.title} />
                 <meta property="og:description" content={metaDescription} />

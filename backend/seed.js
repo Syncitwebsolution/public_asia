@@ -6,7 +6,7 @@ import { Video } from "./src/models/video.model.js";
 import { User } from "./src/models/user.model.js";
 import { WebStory } from "./src/models/webstory.model.js";
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = `${process.env.MONGODB_URI}/news-db`;
 
 const categories = [
   { name: "देश", description: "राष्ट्रीय समाचार" },

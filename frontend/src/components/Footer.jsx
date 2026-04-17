@@ -4,80 +4,81 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-10">
+    <footer className="bg-gray-900 text-gray-300 mt-6 border-t border-gray-800">
       
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 lg:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 lg:py-8 grid grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-12 w-full">
         
-        {/* Brand */}
-        <div>
-          <h2 className="text-xl font-bold text-white mb-3">
-            Aaj Ka Mudda
+        {/* Brand - Span 3 columns on mobile */}
+        <div className="col-span-3 md:col-span-1">
+          <h2 className="text-lg font-bold text-white mb-2">
+            Public Asia
           </h2>
-          <p className="text-sm leading-relaxed">
+          <p className="text-xs leading-relaxed text-gray-400">
             भारत और दुनिया की ताज़ा खबरें, वीडियो, और विश्लेषण —
             सबसे पहले, सबसे भरोसेमंद।
           </p>
         </div>
 
         {/* News Links */}
-        <div>
-          <h3 className="text-sm font-semibold text-white mb-3">
+        <div className="col-span-1">
+          <h3 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider mb-2">
             न्यूज़
           </h3>
-          <ul className="space-y-2 text-sm">
-            <li><Link to="/category/देश" className="hover:text-orange-500 cursor-pointer">देश</Link></li>
-            <li><Link to="/category/विदेश" className="hover:text-orange-500 cursor-pointer">विदेश</Link></li>
-            <li><Link to="/category/राज्य" className="hover:text-orange-500 cursor-pointer">राज्य</Link></li>
-            <li><Link to="/category/शहर" className="hover:text-orange-500 cursor-pointer">शहर</Link></li>
-            <li><Link to="/category/क्रिकेट" className="hover:text-orange-500 cursor-pointer">क्रिकेट</Link></li>
+          <ul className="space-y-1.5 text-[10px] sm:text-xs">
+            <li><Link to="/category/देश" className="hover:text-red-500 transition-colors">देश</Link></li>
+            <li><Link to="/category/विदेश" className="hover:text-red-500 transition-colors">विदेश</Link></li>
+            <li><Link to="/category/राज्य" className="hover:text-red-500 transition-colors">राज्य</Link></li>
+            <li><Link to="/category/शहर" className="hover:text-red-500 transition-colors">शहर</Link></li>
+            <li><Link to="/category/क्रिकेट" className="hover:text-red-500 transition-colors">क्रिकेट</Link></li>
           </ul>
         </div>
 
         {/* Useful Links */}
-        <div>
-          <h3 className="text-sm font-semibold text-white mb-3">
-            उपयोगी लिंक
+        <div className="col-span-1">
+          <h3 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider mb-2">
+            लिंक
           </h3>
-          <ul className="space-y-2 text-sm">
-            <li><Link to="/about" className="hover:text-orange-500 cursor-pointer">About Us</Link></li>
-            <li><Link to="/contact" className="hover:text-orange-500 cursor-pointer">Contact</Link></li>
-            <li><Link to="/privacy" className="hover:text-orange-500 cursor-pointer">Privacy Policy</Link></li>
-            <li><Link to="/terms" className="hover:text-orange-500 cursor-pointer">Terms & Conditions</Link></li>
+          <ul className="space-y-1.5 text-[10px] sm:text-xs">
+            <li><Link to="/about" className="hover:text-red-500 transition-colors">About Us</Link></li>
+            <li><Link to="/contact" className="hover:text-red-500 transition-colors">Contact</Link></li>
+            <li><Link to="/privacy" className="hover:text-red-500 transition-colors">Privacy</Link></li>
+            <li><Link to="/terms" className="hover:text-red-500 transition-colors">Terms</Link></li>
           </ul>
         </div>
 
-        {/* Social */}
-        <div>
-          <h3 className="text-sm font-semibold text-white mb-3">
+        {/* Social - Vertically aligned like others */}
+        <div className="col-span-1">
+          <h3 className="text-[10px] sm:text-xs font-semibold text-white uppercase tracking-wider mb-2">
             Follow Us
           </h3>
-          <div className="flex gap-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors">
-              <Facebook className="cursor-pointer" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors">
-              <Twitter className="cursor-pointer" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors">
-              <Youtube className="cursor-pointer" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-500 transition-colors">
-              <Instagram className="cursor-pointer" />
-            </a>
-          </div>
+          <ul className="space-y-1.5 text-[10px] sm:text-xs">
+            {[ 
+              { Icon: Facebook, name: "Facebook", href: "https://facebook.com" },
+              { Icon: Twitter, name: "Twitter", href: "https://twitter.com" },
+              { Icon: Youtube, name: "Youtube", href: "https://youtube.com" },
+              { Icon: Instagram, name: "Instagram", href: "https://instagram.com" }
+            ].map(({ Icon, name, href }, idx) => (
+              <li key={idx}>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 sm:gap-2 hover:text-red-500 transition-colors">
+                  <Icon size={14} className="shrink-0" />
+                  <span className="truncate">{name}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-sm text-gray-400">
-          <p className="text-center md:text-left">© {new Date().getFullYear()} Aaj Ka Mudda. All rights reserved.</p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+      <div className="border-t border-gray-800/50 bg-gray-950/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-[10px] sm:text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} Public Asia. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link to="/about" className="hover:text-white">About</Link>
+            <Link to="/privacy" className="hover:text-white">Privacy</Link>
+            <Link to="/terms" className="hover:text-white">Terms</Link>
           </div>
         </div>
       </div>
@@ -87,3 +88,4 @@ const Footer = () => {
 }
 
 export default Footer
+

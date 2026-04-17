@@ -22,7 +22,6 @@ const AdminDashboard = () => {
   });
 
   const [recentNews, setRecentNews] = useState([]);
-  const { currentUser } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {

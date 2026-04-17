@@ -1,5 +1,4 @@
 import './App.css'
-import { useEffect } from 'react'
 import Home from './components/Home'
 import { Routes, Route, useLocation } from "react-router-dom"
 import Footer from './components/Footer'
@@ -39,55 +38,57 @@ function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Aaj Ka Mudda - Breaking News & Latest Updates</title>
-        <meta name="description" content="Aaj Ka Mudda delivers the latest breaking news, videos, web stories, and in-depth analysis across India and the globe." />
-        <meta property="og:title" content="Aaj Ka Mudda - Breaking News & Latest Updates" />
+        <title>Public Asia - Breaking News & Latest Updates</title>
+        <meta name="description" content="Public Asia delivers the latest breaking news, videos, web stories, and in-depth analysis across India and the globe." />
+        <meta property="og:title" content="Public Asia - Breaking News & Latest Updates" />
         <meta property="og:type" content="website" />
       </Helmet>
       <ScrollToTop />
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/news/:slug" element={<NewsDetail />} />
-        <Route path="/category/:categoryName" element={<Home />} />
-        <Route path='/search' element={<SearchPage />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+      <div className="flex-1 flex flex-col">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
+          <Route path="/category/:categoryName" element={<Home />} />
+          <Route path='/search' element={<SearchPage />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
 
-        <Route path="/videos" element={<VideoPage />} />
-        <Route path="/epaper" element={<EPaperPage />} />
-        <Route path="/webstory" element={<WebStoryPage />} />
-        <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/videos" element={<VideoPage />} />
+          <Route path="/epaper" element={<EPaperPage />} />
+          <Route path="/webstory" element={<WebStoryPage />} />
+          <Route path="/change-password" element={<ChangePassword />} />
 
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsCondition />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsCondition />} />
 
-        <Route path="/admin" element={
-          <AdminRoute>
-            <AdminLayout />
-          </AdminRoute>
-        }>
-          <Route index element={<AdminDashboard />} />
-          <Route path="news" element={<AdminNews />} />
-          <Route path="videos" element={<AdminVideos />} />
-          <Route path="webstory" element={<AdminWebStory />} />
-          <Route path="categories" element={<AdminCategories />} />
-          <Route path="users" element={<AdminUsers />} />
-          <Route path="roles" element={<AdminRoles />} />
-          <Route path="comments" element={<AdminComments />} />
-          <Route path="ads" element={<AdminAds />} />
-          {/* <Route path="media" element={<AdminMedia />} /> */}
-          <Route path="settings" element={<AdminSettings />} />
-        </Route>
+          <Route path="/admin" element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }>
+            <Route index element={<AdminDashboard />} />
+            <Route path="news" element={<AdminNews />} />
+            <Route path="videos" element={<AdminVideos />} />
+            <Route path="webstory" element={<AdminWebStory />} />
+            <Route path="categories" element={<AdminCategories />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="roles" element={<AdminRoles />} />
+            <Route path="comments" element={<AdminComments />} />
+            <Route path="ads" element={<AdminAds />} />
+            {/* <Route path="media" element={<AdminMedia />} /> */}
+            <Route path="settings" element={<AdminSettings />} />
+          </Route>
 
-      </Routes>
+        </Routes>
+      </div>
       {!isAdminRoute && <Footer />}
-    </>
+    </div>
   )
 }
 

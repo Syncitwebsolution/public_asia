@@ -23,7 +23,7 @@ const PrivacyPolicy = () => {
 
         <section className="prose max-w-none text-gray-700 leading-relaxed space-y-8">
           <p className="text-lg font-medium">
-            Aaj Ka Mudda में आपका स्वागत है। आपकी निजता (Privacy) हमारे लिए सर्वोपरि है। यह नीति स्पष्ट करती है कि जब आप हमारी वेबसाइट और सेवाओं का उपयोग करते हैं, तो हम आपका डेटा कैसे एकत्र, उपयोग और सुरक्षित करते हैं।
+            Public Asia में आपका स्वागत है। आपकी निजता (Privacy) हमारे लिए सर्वोपरि है। यह नीति स्पष्ट करती है कि जब आप हमारी वेबसाइट और सेवाओं का उपयोग करते हैं, तो हम आपका डेटा कैसे एकत्र, उपयोग और सुरक्षित करते हैं।
           </p>
 
           <div>
@@ -63,7 +63,7 @@ const PrivacyPolicy = () => {
             <p>
               यदि इस निजता नीति के संबंध में आपके कोई प्रश्न या सुझाव हैं, तो कृपया हमसे संपर्क करें:
               <br />
-              <strong>ईमेल:</strong> contact@aajkamudda.com
+              <strong>ईमेल:</strong> contact@publicasia.com
             </p>
           </div>
         </section>

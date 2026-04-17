@@ -4,7 +4,7 @@ const settingsSchema = new mongoose.Schema(
   {
     siteName: {
       type: String,
-      default: "Times News",
+      default: "Public Asia",
       required: true,
     },
     contactEmail: {
