@@ -40,6 +40,11 @@ app.use(express.urlencoded({ extended: true, limit: "5mb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+// 5.5 SPA Fallback (Serve index.html for client-side routing)
+import path from "path";
+import { fileURLToPath } from "url";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 // 6. Routes Import
 import userRouter from "./routes/user.routes.js";
 import categoryRouter from "./routes/category.routes.js";
@@ -64,6 +69,20 @@ app.use("/api/v1/videos", videoRouter);
 app.use("/api/v1/webstories", webstoryRouter);
 app.use("/api/v1/ads", adRouter);
 app.use("/api/v1/settings", settingsRouter);
+
+// 7.5 SPA Fallback - Serve index.html for non-API routes (client-side routing)
+app.get("*", (req, res) => {
+  const indexPath = path.join(__dirname, "../public/index.html");
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      // If index.html doesn't exist, send API not found response
+      res.status(404).json({ 
+        message: "API endpoint not found", 
+        path: req.path 
+      });
+    }
+  });
+});
 
 // 8. Global Error Handler (Hamesha sabse last mein)
 app.use(globalErrorHandler);
